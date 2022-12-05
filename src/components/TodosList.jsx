@@ -6,7 +6,11 @@ const TodosList = (props) => {
     <div>
       <ul>
           {props.todos.map(todo => (
-              <TodoItem key={todo.id} todo={todo} />
+              <TodoItem 
+                key={todo.id} 
+                todo={todo} 
+                toggleCompletedProps={props.toggleCompletedProps}
+              />
           ))}
       </ul>
     </div>

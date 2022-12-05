@@ -3,7 +3,7 @@ import TodosList from "./TodosList"
 import Header from "./Header";
 
 const TodoConatiner = () => {
-  const [todos, settodos] = useState([
+  const [todos, setTodos] = useState([
     {
       id: 1,
       title: "Setup development environment",
@@ -21,10 +21,23 @@ const TodoConatiner = () => {
     }
   ]);
 
+  const toggleCompleted = (id) => {
+
+    setTodos(todos.map((todo) => {
+        if(id == todo.id) {
+            return {
+                ...todo,
+                completed: !todo.completed
+            }
+        } 
+        return todo
+    }))
+  }
+
     return (
         <>
             <Header />
-            <TodosList todos={todos} />
+            <TodosList todos={todos} toggleCompletedProps={toggleCompleted} />
         </>
     )
 }
