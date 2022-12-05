@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 //styleSheet
 import './TodoItem.css'
 
@@ -32,6 +32,12 @@ const TodoItem = (props) => {
       } else {
         editMode.display = "none"
       }
+
+      useEffect(() => {
+        return () => {
+            
+        };
+      }, []);
 
   return (
     <>

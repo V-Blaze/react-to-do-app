@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { v4 as uuidv4 } from 'uuid';
 import Header from "./Header";
 import InputTodo from "./InputTodo";
@@ -9,26 +9,22 @@ import '../App.css'
 
 
 const TodoConatiner = () => {
-  const [todos, setTodos] = useState([
-    {
-      id: 1,
-      title: "Setup development environment",
-      completed: true
-    },
-    {
-      id: 2,
-      title: "Develop website and add content",
-      completed: false
-    },
-    {
-      id: 3,
-      title: "Deploy to live server",
-      completed: false
-    }
-  ]);
+
+  const getInitialTodos = () => {
+    const savedTodos = JSON.parse(localStorage.getItem('todos'))
+
+    return savedTodos || []
+  }
+
+  const [todos, setTodos] = useState(getInitialTodos());
+
+  useEffect(() => {
+    const temp = JSON.stringify(todos)
+    localStorage.setItem('todos', temp)
+
+  }, [todos]);
 
   const toggleCompleted = (id) => {
-
     setTodos(todos.map((todo) => {
         if(id === todo.id) {
             return {
@@ -41,7 +37,6 @@ const TodoConatiner = () => {
   }
 
   const deleteTodo = (id) => {
-
     setTodos(
         [...todos.filter((todo) => {
             return todo.id !== id
