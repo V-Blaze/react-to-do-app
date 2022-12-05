@@ -11,6 +11,7 @@ const TodosList = (props) => {
                 todo={todo} 
                 toggleCompletedProps={props.toggleCompletedProps}
                 deleteTodoProps={props.deleteTodoProps}
+                setUpdateProps={props.setUpdateProps}
               />
           ))}
       </ul>
