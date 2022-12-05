@@ -1,8 +1,14 @@
 import React, {useState, useEffect} from "react";
 import { v4 as uuidv4 } from 'uuid';
+import { Route, Switch } from "react-router-dom";
+
+//components
 import Header from "./Header";
 import InputTodo from "./InputTodo";
 import TodosList from "./TodosList"
+import About from "./pages/About";
+import NotMatch from "./pages/NotMatch";
+import Navbar from "./Navbar";
 
 //styleSheet
 import '../App.css'
@@ -67,20 +73,31 @@ const TodoConatiner = () => {
 
     return (
         <>
-            <div className="container">
-                <div className="inner">
-                    <Header />
-                    <InputTodo 
-                        addTodoItemProps={addTodoItem}
-                    />
-                    <TodosList 
-                        todos={todos} 
-                        toggleCompletedProps={toggleCompleted}
-                        deleteTodoProps={deleteTodo}
-                        setUpdateProps={setUpdate}
-                    />
+        <Navbar />
+        <Switch>
+            <Route exact path="/">
+                <div className="container">
+                    <div className="inner">
+                        <Header />
+                        <InputTodo 
+                            addTodoItemProps={addTodoItem}
+                            />
+                        <TodosList 
+                            todos={todos} 
+                            toggleCompletedProps={toggleCompleted}
+                            deleteTodoProps={deleteTodo}
+                            setUpdateProps={setUpdate}
+                            />
+                    </div>
                 </div>
-            </div>
+            </Route>
+            <Route path="/about">
+                <About />
+            </Route>
+            <Route path="*">
+                <NotMatch />
+            </Route>
+        </Switch>
         </>
     )
 }
