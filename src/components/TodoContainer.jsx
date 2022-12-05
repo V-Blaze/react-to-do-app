@@ -34,10 +34,23 @@ const TodoConatiner = () => {
     }))
   }
 
+  const deleteTodo = (id) => {
+
+    setTodos(
+        [...todos.filter((todo) => {
+            return todo.id !== id
+        })]
+    )
+  }
+
     return (
         <>
             <Header />
-            <TodosList todos={todos} toggleCompletedProps={toggleCompleted} />
+            <TodosList 
+                todos={todos} 
+                toggleCompletedProps={toggleCompleted}
+                deleteTodoProps={deleteTodo}
+            />
         </>
     )
 }

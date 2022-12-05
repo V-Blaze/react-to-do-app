@@ -2,10 +2,17 @@ import React from 'react'
 
 const TodoItem = (props) => {
   return (
+    <>
     <li>
-        <input type="checkbox" checked={props.todo.completed} onChange={()=> props.toggleCompletedProps(props.todo.id)} />
+        <input 
+            type="checkbox" 
+            checked={props.todo.completed} 
+            onChange={()=> props.toggleCompletedProps(props.todo.id)} 
+        />
         {props.todo.title}
+        <button onClick={()=> props.deleteTodoProps(props.todo.id)} >Del</button>
     </li>
+    </>
   )
 }
 

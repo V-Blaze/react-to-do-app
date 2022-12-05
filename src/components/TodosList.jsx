@@ -10,6 +10,7 @@ const TodosList = (props) => {
                 key={todo.id} 
                 todo={todo} 
                 toggleCompletedProps={props.toggleCompletedProps}
+                deleteTodoProps={props.deleteTodoProps}
               />
           ))}
       </ul>
