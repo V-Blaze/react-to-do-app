@@ -4,6 +4,10 @@ import Header from "./Header";
 import InputTodo from "./InputTodo";
 import TodosList from "./TodosList"
 
+//styleSheet
+import '../App.css'
+
+
 const TodoConatiner = () => {
   const [todos, setTodos] = useState([
     {
@@ -56,15 +60,19 @@ const TodoConatiner = () => {
 
     return (
         <>
-            <Header />
-            <InputTodo 
-                addTodoItemProps={addTodoItem}
-            />
-            <TodosList 
-                todos={todos} 
-                toggleCompletedProps={toggleCompleted}
-                deleteTodoProps={deleteTodo}
-            />
+            <div className="container">
+                <div className="inner">
+                    <Header />
+                    <InputTodo 
+                        addTodoItemProps={addTodoItem}
+                    />
+                    <TodosList 
+                        todos={todos} 
+                        toggleCompletedProps={toggleCompleted}
+                        deleteTodoProps={deleteTodo}
+                    />
+                </div>
+            </div>
         </>
     )
 }

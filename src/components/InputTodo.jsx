@@ -19,9 +19,15 @@ const InputTodo = (props) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" placeholder='Add new Todo ...' value={title} onChange={onChange}/>
-      <button type="submit">Submit</button>
+    <form onSubmit={handleSubmit} className="form-container">
+      <input 
+        type="text" 
+        placeholder='Add new Todo ...' 
+        className="input-text"
+        value={title} 
+        onChange={onChange}
+      />
+      <button type="submit" className="input-submit">Submit</button>
     </form>
   )
 }
