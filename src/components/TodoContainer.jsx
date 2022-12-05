@@ -1,6 +1,8 @@
 import React, {useState} from "react";
-import TodosList from "./TodosList"
+import { v4 as uuidv4 } from 'uuid';
 import Header from "./Header";
+import InputTodo from "./InputTodo";
+import TodosList from "./TodosList"
 
 const TodoConatiner = () => {
   const [todos, setTodos] = useState([
@@ -24,7 +26,7 @@ const TodoConatiner = () => {
   const toggleCompleted = (id) => {
 
     setTodos(todos.map((todo) => {
-        if(id == todo.id) {
+        if(id === todo.id) {
             return {
                 ...todo,
                 completed: !todo.completed
@@ -43,9 +45,21 @@ const TodoConatiner = () => {
     )
   }
 
+  const addTodoItem = (title) => {
+    const newTodo = {
+        id: uuidv4(),
+        title: title,
+        completed: false
+    }
+    setTodos([...todos, newTodo])
+  }
+
     return (
         <>
             <Header />
+            <InputTodo 
+                addTodoItemProps={addTodoItem}
+            />
             <TodosList 
                 todos={todos} 
                 toggleCompletedProps={toggleCompleted}
