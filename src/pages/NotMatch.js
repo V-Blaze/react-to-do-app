@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-const NotMatch = () => {
-  return (
-    <div>NotMatch</div>
-  )
-}
+const NotMatch = () => (
+  <div>NotMatch</div>
+);
 
-export default NotMatch
+export default NotMatch;
