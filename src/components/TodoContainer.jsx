@@ -6,15 +6,15 @@ import { Route, Switch } from "react-router-dom";
 import Header from "./Header";
 import InputTodo from "./InputTodo";
 import TodosList from "./TodosList"
-import About from "./pages/About";
-import NotMatch from "./pages/NotMatch";
+import About from "../pages/About";
+import NotMatch from "../pages/NotMatch";
 import Navbar from "./Navbar";
 
 //styleSheet
 import '../App.css'
 
 
-const TodoConatiner = () => {
+const TodoContainer = () => {
 
   const getInitialTodos = () => {
     const savedTodos = JSON.parse(localStorage.getItem('todos'))
@@ -102,4 +102,4 @@ const TodoConatiner = () => {
     )
 }
 
-export default TodoConatiner
+export default TodoContainer

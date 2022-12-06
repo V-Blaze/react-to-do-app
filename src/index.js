@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router } from "react-router-dom";
 //components file
-import TodoConatiner from './components/TodoContainer';
+import TodoContainer from './components/TodoContainer';
 
 //styleSheets
 import './index.css';
@@ -11,10 +11,10 @@ import './index.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <TodoConatiner />
-    </BrowserRouter>
-  </React.StrictMode>
+    <Router basename={process.env.PUBLIC_URL}>
+      <TodoContainer />
+    </Router>  
+  </React.StrictMode>, 
 );
 
 // If you want to start measuring performance in your app, pass a function
